@@ -1,0 +1,610 @@
+
+# PRD — Plataforma SaaS de Inteligência Artificial
+
+## Nome provisório do produto
+
+**HUb de IA OMD*
+
+Sistema SaaS de Inteligência Artificial multi-tenant para agências, empresas e criadores.
+
+---
+
+# 1️⃣ Visão do Produto
+
+Criar uma **plataforma SaaS de Inteligência Artificial multi-tenant** que permita:
+
+* centralizar múltiplas IAs
+* treinar contexto por empresa
+* criar agentes especializados
+* automatizar fluxos
+* permitir uso independente por clientes
+
+A plataforma será operada pela **OMD como super administradora**.
+
+---
+
+# 2️⃣ Estrutura de Usuários do Sistema
+
+## 1️⃣ Super Admin (OMD)
+
+Controle total da plataforma.
+
+Pode:
+
+* criar contas
+* criar clientes
+* inserir contexto
+* criar agentes
+* gerenciar APIs
+* acessar analytics
+
+---
+
+## 2️⃣ Cliente da Agência
+
+Exemplo:
+
+* Oficina Belas Artes
+* Sindicos Awards
+* outros clientes
+
+Esses clientes usam o sistema **já treinado com seus dados**.
+
+---
+
+## 3️⃣ Usuário SaaS Independente
+
+Usuário que compra acesso ao sistema mas **não é cliente da OMD**.
+
+Características:
+
+* ambiente isolado
+* dados privados
+* OMD não acessa conteúdos internos
+
+---
+
+# 3️⃣ Conceito de Tenant (fundamental)
+
+Cada empresa será um **tenant isolado**.
+
+Exemplo:
+
+```
+Sistema
+   │
+   ├─ OMD (super admin)
+   │
+   ├─ Oficina Belas Artes
+   │
+   ├─ Sindicos Awards
+   │
+   └─ Cliente SaaS Independente
+```
+
+Todos usam o mesmo software, mas:
+
+* dados
+* memória
+* documentos
+* branding
+
+são **separados**.
+
+Essa arquitetura é chamada de **multi-tenant SaaS**. ([NTCONSULT][1])
+
+---
+
+# 4️⃣ Sistema de Contexto Inteligente por Empresa
+
+Essa é a funcionalidade **mais importante do seu sistema**.
+
+Cada tenant terá uma **Base de Contexto Empresarial**.
+
+---
+
+## Estrutura da Base de Contexto
+
+### Identidade da marca
+
+```
+nome
+história
+posicionamento
+missão
+valores
+```
+
+---
+
+### Tom de voz
+
+Exemplo:
+
+```
+profissional
+educativo
+amigável
+luxo
+premium
+```
+
+---
+
+### Branding
+
+```
+cores
+tipografia
+identidade visual
+estilo de comunicação
+```
+
+---
+
+### Serviços
+
+```
+serviços oferecidos
+produtos
+ofertas
+planos
+```
+
+---
+
+### Público-alvo
+
+```
+perfil do cliente
+persona
+problemas
+desejos
+```
+
+---
+
+### Estratégia de marketing
+
+```
+funil
+estratégias
+campanhas
+objetivos
+```
+
+---
+
+## Funcionamento
+
+Quando um usuário seleciona um cliente:
+
+```
+Selecionar cliente → Oficina Belas Artes
+```
+
+O sistema automaticamente carrega:
+
+```
+contexto
+documentos
+estratégia
+branding
+tom de voz
+```
+
+E todas as IAs passam a responder **baseadas nesse contexto**.
+
+---
+
+# 5️⃣ Painel do Super Admin (OMD)
+
+Painel exclusivo da OMD.
+
+---
+
+## Gestão de tenants
+
+Criar clientes:
+
+```
+Oficina Belas Artes
+Sindicos Awards
+Empresa X
+```
+
+---
+
+## Gestão de contexto
+
+Adicionar dados do cliente:
+
+```
+documentos
+branding
+playbooks
+estratégia
+```
+
+---
+
+## Gestão de usuários
+
+Criar usuários dentro de cada tenant.
+
+---
+
+## Analytics
+
+Ver:
+
+```
+uso da IA
+tokens
+atividades
+```
+
+---
+
+# 6️⃣ Painel do Cliente
+
+Quando o cliente entra:
+
+```
+Login → Oficina Belas Artes
+```
+
+Ele verá:
+
+* chat IA
+* agentes
+* documentos
+* automações
+
+Mas tudo **treinado no negócio dele**.
+
+---
+
+# 7️⃣ Painel do Usuário SaaS Independente
+
+Usuário que compra o sistema.
+
+Ele terá:
+
+```
+chat IA
+biblioteca de prompts
+automação
+agentes
+```
+
+Mas **sem acesso à estrutura da OMD**.
+
+E a OMD **não terá acesso aos dados dele**.
+
+---
+
+# 8️⃣ Sistema de IA Multi-Modelos
+
+A plataforma conectará várias IAs.
+
+---
+
+## Modelos suportados
+
+```
+OpenAI
+Claude
+Gemini
+Mistral
+Groq
+Perplexity
+```
+
+---
+
+## Router de IA
+
+Sistema decide qual IA usar.
+
+Exemplo:
+
+```
+copy → GPT
+análise → Claude
+pesquisa → Gemini
+```
+
+---
+
+# 9️⃣ Agentes Inteligentes
+
+Agentes especializados.
+
+---
+
+## Agente Copy
+
+Cria:
+
+```
+posts
+anúncios
+scripts
+```
+
+---
+
+## Agente Estratégia
+
+Cria:
+
+```
+funis
+planejamento
+campanhas
+```
+
+---
+
+## Agente Criativo
+
+Cria:
+
+```
+ideias
+conceitos
+branding
+```
+
+---
+
+## Agente Programador
+
+Cria:
+
+```
+scripts
+APIs
+automação
+```
+
+---
+
+# 🔟 Sistema de Memória (RAG)
+
+Cada tenant terá memória própria.
+
+---
+
+## Fontes
+
+```
+documentos
+PDF
+sites
+planilhas
+playbooks
+```
+
+---
+
+## Funcionamento
+
+IA consulta base antes de responder.
+
+---
+
+# 11️⃣ Automação de Fluxos
+
+Criar pipelines.
+
+Exemplo:
+
+```
+briefing cliente
+↓
+estratégia IA
+↓
+copy IA
+↓
+criativo IA
+↓
+plano campanha
+```
+
+---
+
+# 12️⃣ Arquitetura Técnica
+
+Arquitetura ideal:
+
+```
+Frontend
+   │
+Backend API
+   │
+Orquestrador IA
+   │
+Banco de dados
+   │
+Vector Database
+   │
+APIs IA
+```
+
+---
+
+# 13️⃣ Tecnologias recomendadas
+
+### Frontend
+
+```
+Next.js
+React
+Tailwind
+```
+
+---
+
+### Backend
+
+```
+Python (FastAPI)
+Node.js
+```
+
+---
+
+### Banco
+
+```
+PostgreSQL
+Supabase
+```
+
+---
+
+### Banco Vetorial
+
+```
+Pinecone
+Chroma
+Weaviate
+Supabase Vector
+```
+
+---
+
+# 14️⃣ Estrutura de banco de dados
+
+Principais tabelas:
+
+```
+tenants
+users
+contexts
+documents
+prompts
+agents
+automation
+```
+
+---
+
+# 15️⃣ Segurança
+
+Cada tenant terá:
+
+```
+id_tenant
+```
+
+Todos os dados serão filtrados por:
+
+```
+tenant_id
+```
+
+Isso garante isolamento.
+
+---
+
+# 16️⃣ Monetização SaaS
+
+Modelo sugerido:
+
+---
+
+## Plano Starter
+
+```
+chat IA
+prompts
+memória
+```
+
+---
+
+## Plano Pro
+
+```
+agentes
+automação
+documentos
+```
+
+---
+
+## Plano Agency
+
+```
+multi-empresa
+API
+analytics
+```
+
+---
+
+# 17️⃣ Roadmap de desenvolvimento
+
+## Fase 1 — MVP (2 semanas)
+
+```
+login
+multi-tenant
+chat IA
+```
+
+---
+
+## Fase 2
+
+```
+contexto por empresa
+documentos
+memória
+```
+
+---
+
+## Fase 3
+
+```
+agentes
+automação
+pipelines
+```
+
+---
+
+## Fase 4
+
+```
+dashboard
+analytics
+marketplace de agentes
+```
+
+---
+
+# 18️⃣ Visão de futuro
+
+Esse sistema pode evoluir para:
+
+```
+AI OS para empresas
+```
+
+ou até:
+
+```
+Hub global de agentes
+```
+
+---
+
+💡 **Minha leitura estratégica:**
+Você acabou de desenhar algo que pode se tornar **um produto SaaS de IA para agências e empresas** — não apenas uma ferramenta interna.
+
+
