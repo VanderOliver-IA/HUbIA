@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-indigo: #0a0f1c;
+  /* Background principal */
+  --color-brand-indigo-light: #161e31;
+  /* Cards ressaltados */
+  --color-brand-gold: #f59e0b;
+  /* Acentos vibrantes */
+  --color-brand-gold-soft: rgba(245, 158, 11, 0.15);
+  /* Brilhos e sombras do gold */
+
+  --color-glass-bg: rgba(22, 30, 49, 0.4);
+  --color-glass-border: rgba(255, 255, 255, 0.08);
+
+  --font-sans: var(--font-inter);
+}
+
+@layer base {
+
+  html,
+  body {
+    @apply bg-brand-indigo text-[#e2e8f0] antialiased scroll-smooth;
+    font-family: var(--font-inter), sans-serif;
+  }
+}
+
+/* Utilitário de Glassmorphism elegante */
+@layer utilities {
+  .glass-panel {
+    @apply bg-glass-bg backdrop-blur-[12px] border border-glass-border rounded-2xl;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  .glass-panel-gold-accent {
+    @apply bg-glass-bg backdrop-blur-[12px] border border-brand-gold-soft rounded-2xl;
+    box-shadow: 0 0 20px var(--color-brand-gold-soft);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px rgba(245, 158, 11, 0.4);
+  }
+}
