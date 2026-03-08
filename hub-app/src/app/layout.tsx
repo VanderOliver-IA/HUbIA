@@ -35,9 +35,13 @@ export default function RootLayout({
               <LayoutDashboard className="w-5 h-5" />
               <span>Dashboard</span>
             </Link>
-            <Link href="/agents" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-white/5 text-slate-300 hover:text-white transition-colors">
+            <Link href="/chat" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-white/5 text-slate-300 hover:text-white transition-colors">
               <Bot className="w-5 h-5" />
-              <span>Agentes IA</span>
+              <span>Chat IA</span>
+            </Link>
+            <Link href="/context" className="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-brand-gold/5 border border-brand-gold/20 text-brand-gold hover:bg-brand-gold/10 transition-colors">
+              <Zap className="w-5 h-5" />
+              <span>Cérebro (Contexto)</span>
             </Link>
             <Link href="/tenants" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-white/5 text-slate-300 hover:text-white transition-colors">
               <Users className="w-5 h-5" />
